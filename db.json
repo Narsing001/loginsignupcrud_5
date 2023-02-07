@@ -1,0 +1,22 @@
+{
+  "StudData": [],
+  "register": [
+    {
+      "FName": "Narsing Dnyanoba Sonkamble",
+      "Phone": 8208741361,
+      "Email": "snd@gmail.com",
+      "Password": "#ns1234",
+      "id": 1
+    },
+    {
+      "FName": "pavan kale",
+      "Phone": 8208741361,
+      "Email": "ss@gmail.com",
+      "Password": "#1234",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

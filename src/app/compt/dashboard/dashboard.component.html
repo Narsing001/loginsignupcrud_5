@@ -1,0 +1,79 @@
+<!-- navbar -->
+<nav class="navbar navbar-light bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Stud Details</a>
+      <form class="d-flex">
+        
+        <button class="btn btn-success" (click)="Addclick()" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Add Student</button>
+      </form>
+    </div>
+  </nav>
+  <!-- //table -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>StudentId</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of empdata">
+            <td>{{row.id}}</td>
+            <td>{{row.Fname}}</td>
+            <td>{{row.Email}}</td>
+            <td>{{row.Phone}}</td>
+            <td>{{row.Age}}</td>
+            <td>
+                <button (click)="editstud(row)" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-info">Edit</button>
+                <button (click)="deletestud(row)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <!-- form -->
+        <form [formGroup]="addform">
+            <div class="mb-3">
+              <label for="Fname" class="form-label">FullName</label>
+              <input type="text" formControlName="Fname" class="form-control" id="Fname">
+              
+            </div>
+            <div class="mb-3">
+              <label for="Email" class="form-label">Email</label>
+              <input type="Email" formControlName="Email" class="form-control" id="Email">
+            </div>
+            <div class="mb-3">
+                <label for="Phone" class="form-label">Phone</label>
+                <input type="number" formControlName="Phone" class="form-control" id="Phone">
+                
+              </div>
+              <div class="mb-3">
+                <label for="Age" class="form-label">Age</label>
+                <input type="number" formControlName="Age" class="form-control" id="Age">
+              </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="isAdd" type="button" (click)="poststud()" class="btn btn-primary">Add</button>
+          <button  type="button" (click)="updatestud()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
